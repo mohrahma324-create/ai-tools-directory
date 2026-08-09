@@ -21,7 +21,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react"
-import { useState, useTransition } from "react"
+import { useTransition } from "react"
 import { useLanguage } from "@/components/language-provider"
 import { useVotes } from "@/components/votes-provider"
 import { toggleUpvote } from "@/app/actions/tools"
@@ -48,7 +48,18 @@ const icons: Record<string, LucideIcon> = {
 
 export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
   const { t } = useLanguage()
+  const { isVoted, markVoted } = useVotes()
+  const [isPending, startTransition] = useTransition()
   const Icon = icons[tool.icon] ?? Sparkles
+  const voted = isVoted(tool.id)
+
+  const handleVote = () => {
+    const nextVoted = !voted
+    markVoted(tool.id, nextVoted)
+    startTransition(() => {
+      toggleUpvote(tool.id, nextVoted)
+    })
+  }
 
   return (
     <article className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/50 hover:bg-card/80">
@@ -100,13 +111,8 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
           </a>
           <button
             type="button"
-            className="inline-flex items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs font-semibold transition-colors hover:border-primary hover:text-primary"
-          >
-            <ChevronUp className="size-3.5" />
-            {tool.votes.toLocaleString()}
-          </button>
-        </div>
-      </div>
-    </article>
-  )
-}
+            disabled={isPending}
+            onClick={handleVote}
+            aria-pressed={voted}
+            className={cn(
+              "inline-flex items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs font-semibold transition-colors
