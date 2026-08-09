@@ -1,4 +1,5 @@
-export type Lang = "en" | "ar"
+
+    export type Lang = "en" | "ar"
 
 export type Localized = { en: string; ar: string }
 
@@ -115,9 +116,10 @@ export const dictionary = {
 
 export const featuredTools: Tool[] = [
   {
-    id: "nova-write",
-    name: "NovaWrite",
-    tagline: { en: "AI copywriter for Arabic & English campaigns", ar: "كاتب إعلانات بالذكاء الاصطناعي للحملات العربية والإنجليزية" },
+    id: "jasper",
+    name: "Jasper",
+    url: "https://www.jasper.ai",
+    tagline: { en: "AI copywriter for marketing campaigns", ar: "كاتب إعلانات بالذكاء الاصطناعي للحملات التسويقية" },
     category: { en: "Writing", ar: "الكتابة" },
     icon: "Sparkles",
     votes: 2841,
@@ -126,8 +128,9 @@ export const featuredTools: Tool[] = [
     tag: { en: "Editor's Choice", ar: "اختيار المحررين" },
   },
   {
-    id: "lumio",
-    name: "Lumio AI",
+    id: "runway",
+    name: "Runway",
+    url: "https://runwayml.com",
     tagline: { en: "Turn text prompts into cinematic video", ar: "حوّل النصوص إلى فيديو سينمائي" },
     category: { en: "Video", ar: "فيديو" },
     icon: "Clapperboard",
@@ -137,9 +140,10 @@ export const featuredTools: Tool[] = [
     tag: { en: "Trending", ar: "رائج" },
   },
   {
-    id: "sahab",
-    name: "Sahab Analytics",
-    tagline: { en: "Predictive insights for MENA businesses", ar: "رؤى تنبؤية لأعمال منطقة الشرق الأوسط" },
+    id: "similarweb",
+    name: "Similarweb",
+    url: "https://www.similarweb.com",
+    tagline: { en: "Market & competitor intelligence platform", ar: "منصة رؤى السوق والمنافسين" },
     category: { en: "Business", ar: "أعمال" },
     icon: "TrendingUp",
     votes: 1789,
@@ -151,26 +155,29 @@ export const featuredTools: Tool[] = [
 
 export const videoTools: Tool[] = [
   {
-    id: "reelforge",
-    name: "ReelForge",
-    tagline: { en: "Auto-generate short-form reels at scale", ar: "إنشاء مقاطع قصيرة تلقائيًا على نطاق واسع" },
+    id: "pictory",
+    name: "Pictory",
+    url: "https://pictory.ai",
+    tagline: { en: "Auto-generate short-form videos at scale", ar: "إنشاء مقاطع فيديو قصيرة تلقائيًا على نطاق واسع" },
     category: { en: "Video", ar: "فيديو" },
     icon: "Video",
     votes: 1342,
     rating: 4.6,
   },
   {
-    id: "voicelayer",
-    name: "VoiceLayer",
-    tagline: { en: "Natural Arabic AI voiceovers & dubbing", ar: "تعليق صوتي ودبلجة عربية طبيعية بالذكاء الاصطناعي" },
+    id: "elevenlabs",
+    name: "ElevenLabs",
+    url: "https://elevenlabs.io",
+    tagline: { en: "Natural AI voiceovers & dubbing", ar: "تعليق صوتي ودبلجة طبيعية بالذكاء الاصطناعي" },
     category: { en: "Audio", ar: "صوت" },
     icon: "AudioLines",
     votes: 1190,
     rating: 4.7,
   },
   {
-    id: "framecut",
-    name: "FrameCut",
+    id: "descript",
+    name: "Descript",
+    url: "https://www.descript.com",
     tagline: { en: "AI editor that cuts footage in seconds", ar: "محرر ذكي يقص اللقطات في ثوانٍ" },
     category: { en: "Editing", ar: "تحرير" },
     icon: "Scissors",
@@ -178,9 +185,10 @@ export const videoTools: Tool[] = [
     rating: 4.5,
   },
   {
-    id: "motionly",
-    name: "Motionly",
-    tagline: { en: "Text-to-motion graphics in one click", ar: "رسوم متحركة من النص بنقرة واحدة" },
+    id: "vyond",
+    name: "Vyond",
+    url: "https://www.vyond.com",
+    tagline: { en: "Text-to-motion graphics in minutes", ar: "رسوم متحركة من النص في دقائق" },
     category: { en: "Motion", ar: "موشن" },
     icon: "Film",
     votes: 742,
@@ -190,8 +198,9 @@ export const videoTools: Tool[] = [
 
 export const productivityTools: Tool[] = [
   {
-    id: "tasksense",
-    name: "TaskSense",
+    id: "motion",
+    name: "Motion",
+    url: "https://www.usemotion.com",
     tagline: { en: "AI planner that organizes your week", ar: "مخطط ذكي ينظم أسبوعك" },
     category: { en: "Planning", ar: "تخطيط" },
     icon: "CalendarCheck",
@@ -199,8 +208,9 @@ export const productivityTools: Tool[] = [
     rating: 4.8,
   },
   {
-    id: "notewise",
-    name: "NoteWise",
+    id: "otter",
+    name: "Otter.ai",
+    url: "https://otter.ai",
     tagline: { en: "Summarize meetings & notes instantly", ar: "تلخيص الاجتماعات والملاحظات فورًا" },
     category: { en: "Notes", ar: "ملاحظات" },
     icon: "NotebookPen",
@@ -208,8 +218,9 @@ export const productivityTools: Tool[] = [
     rating: 4.7,
   },
   {
-    id: "inboxzero",
-    name: "InboxZero AI",
+    id: "superhuman",
+    name: "Superhuman",
+    url: "https://superhuman.com",
     tagline: { en: "Draft and triage emails automatically", ar: "صياغة وفرز البريد الإلكتروني تلقائيًا" },
     category: { en: "Email", ar: "بريد" },
     icon: "Mail",
@@ -217,8 +228,9 @@ export const productivityTools: Tool[] = [
     rating: 4.6,
   },
   {
-    id: "flowbot",
-    name: "FlowBot",
+    id: "zapier",
+    name: "Zapier",
+    url: "https://zapier.com",
     tagline: { en: "Automate repetitive workflows visually", ar: "أتمتة المهام المتكررة بصريًا" },
     category: { en: "Automation", ar: "أتمتة" },
     icon: "Workflow",
@@ -229,8 +241,9 @@ export const productivityTools: Tool[] = [
 
 export const businessTools: Tool[] = [
   {
-    id: "ledgerai",
-    name: "LedgerAI",
+    id: "puzzle",
+    name: "Puzzle",
+    url: "https://puzzle.io",
     tagline: { en: "Smart bookkeeping for startups", ar: "محاسبة ذكية للشركات الناشئة" },
     category: { en: "Finance", ar: "مالية" },
     icon: "Calculator",
@@ -238,8 +251,9 @@ export const businessTools: Tool[] = [
     rating: 4.7,
   },
   {
-    id: "pitchcraft",
-    name: "PitchCraft",
+    id: "beautifulai",
+    name: "Beautiful.ai",
+    url: "https://www.beautiful.ai",
     tagline: { en: "Generate investor-ready decks fast", ar: "إنشاء عروض جاهزة للمستثمرين بسرعة" },
     category: { en: "Sales", ar: "مبيعات" },
     icon: "Presentation",
@@ -247,17 +261,19 @@ export const businessTools: Tool[] = [
     rating: 4.6,
   },
   {
-    id: "supportgenie",
-    name: "SupportGenie",
-    tagline: { en: "AI customer support in Arabic dialects", ar: "دعم عملاء بالذكاء الاصطناعي باللهجات العربية" },
+    id: "intercom-fin",
+    name: "Intercom Fin",
+    url: "https://www.intercom.com/fin",
+    tagline: { en: "AI customer support in multiple languages", ar: "دعم عملاء بالذكاء الاصطناعي بلغات متعددة" },
     category: { en: "Support", ar: "دعم" },
     icon: "Headset",
     votes: 1102,
     rating: 4.8,
   },
   {
-    id: "marketmind",
-    name: "MarketMind",
+    id: "crayon",
+    name: "Crayon",
+    url: "https://www.crayon.co",
     tagline: { en: "Competitor & market research on autopilot", ar: "أبحاث المنافسين والسوق تلقائيًا" },
     category: { en: "Research", ar: "أبحاث" },
     icon: "Lightbulb",
