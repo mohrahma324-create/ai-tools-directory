@@ -1,5 +1,4 @@
-
-   "use client"
+"use client"
 
 import {
   ArrowUpRight,
@@ -113,7 +112,9 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
 
         <div className="flex items-center gap-2">
           <a
-            href="#"
+            href={tool.url}
+            target="_blank"
+            rel="noopener noreferrer"
             aria-label={t(d.card.visit)}
             className="inline-flex size-8 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
           >
@@ -136,4 +137,4 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
       </div>
     </article>
   )
-}   
+}
