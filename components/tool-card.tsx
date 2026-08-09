@@ -70,6 +70,9 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
     })
   }
 
+  const visitUrl =
+    tool.url || `https://www.google.com/search?q=${encodeURIComponent(tool.name)}`
+
   return (
     <article className="group relative flex flex-col gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/50 hover:bg-card/80">
       <div className="flex items-start gap-4">
@@ -112,7 +115,7 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
 
         <div className="flex items-center gap-2">
           <a
-            href={tool.url}
+            href={visitUrl}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t(d.card.visit)}
