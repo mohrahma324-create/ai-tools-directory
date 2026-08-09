@@ -115,4 +115,15 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
             onClick={handleVote}
             aria-pressed={voted}
             className={cn(
-              "inline-flex items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs font-semibold transition-colors
+              "inline-flex items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs font-semibold transition-colors hover:border-primary hover:text-primary disabled:opacity-60",
+              voted && "border-primary text-primary bg-primary/10"
+            )}
+          >
+            <ChevronUp className="size-3.5" />
+            {(tool.votes + (voted ? 1 : 0)).toLocaleString()}
+          </button>
+        </div>
+      </div>
+    </article>
+  )
+}
