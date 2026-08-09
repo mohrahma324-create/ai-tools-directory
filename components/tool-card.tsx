@@ -1,4 +1,5 @@
-"use client"
+
+   "use client"
 
 import {
   ArrowUpRight,
@@ -21,7 +22,7 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react"
-import { useTransition } from "react"
+import { useState, useTransition } from "react"
 import { useLanguage } from "@/components/language-provider"
 import { useVotes } from "@/components/votes-provider"
 import { toggleUpvote } from "@/app/actions/tools"
@@ -50,14 +51,23 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
   const { t } = useLanguage()
   const { isVoted, markVoted } = useVotes()
   const [isPending, startTransition] = useTransition()
+  const [displayVotes, setDisplayVotes] = useState(tool.votes)
   const Icon = icons[tool.icon] ?? Sparkles
   const voted = isVoted(tool.id)
 
   const handleVote = () => {
     const nextVoted = !voted
     markVoted(tool.id, nextVoted)
-    startTransition(() => {
-      toggleUpvote(tool.id, nextVoted)
+    setDisplayVotes((v) => (nextVoted ? v + 1 : Math.max(v - 1, 0)))
+    startTransition(async () => {
+      try {
+        const result = await toggleUpvote(tool.id)
+        setDisplayVotes(result.votes)
+        markVoted(tool.id, result.voted)
+      } catch {
+        setDisplayVotes(tool.votes)
+        markVoted(tool.id, voted)
+      }
     })
   }
 
@@ -120,10 +130,10 @@ export function ToolCard({ tool, rank }: { tool: Tool; rank?: number }) {
             )}
           >
             <ChevronUp className="size-3.5" />
-            {(tool.votes + (voted ? 1 : 0)).toLocaleString()}
+            {displayVotes.toLocaleString()}
           </button>
         </div>
       </div>
     </article>
   )
-}
+}   
