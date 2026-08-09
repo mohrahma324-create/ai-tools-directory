@@ -9,12 +9,15 @@ import {
   WhatsAppIcon,
   InstagramIcon,
   MailIconBrand,
+  TelegramIcon,
 } from "@/components/brand-icons"
 
 const WHATSAPP_NUMBER = "971585878229"
 const EMAIL = "mohamed.arab.ai.experts@gmail.com"
 const X_URL = "https://x.com/Arab_ai_experts"
 const INSTAGRAM_URL = "https://www.instagram.com/mohamed920810"
+const TIKTOK_URL = "https://www.tiktok.com/@mohamed.arabaiexp"
+const TELEGRAM_URL = "https://t.me/aitdirectory"
 
 export function Footer() {
   const { t } = useLanguage()
@@ -55,6 +58,16 @@ export function Footer() {
       href: INSTAGRAM_URL,
       icon: InstagramIcon,
     },
+    {
+      label: "TikTok",
+      href: TIKTOK_URL,
+      icon: TikTokIcon,
+    },
+    {
+      label: "Telegram",
+      href: TELEGRAM_URL,
+      icon: TelegramIcon,
+    },
   ]
 
   return (
@@ -76,7 +89,7 @@ export function Footer() {
               <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                 {t(d.footer.follow)}
               </p>
-              <div className="mt-2 flex items-center gap-2">
+              <div className="mt-2 flex flex-wrap items-center gap-2">
                 {socials.map(({ label, href, icon: Icon }) => (
                   <a
                     key={label}
