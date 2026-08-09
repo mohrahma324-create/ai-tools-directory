@@ -3,7 +3,18 @@
 import { Hexagon } from "lucide-react"
 import { useLanguage } from "@/components/language-provider"
 import { dictionary as d } from "@/lib/i18n"
-import { TikTokIcon, XIcon } from "@/components/brand-icons"
+import {
+  TikTokIcon,
+  XIcon,
+  WhatsAppIcon,
+  InstagramIcon,
+  MailIconBrand,
+} from "@/components/brand-icons"
+
+const WHATSAPP_NUMBER = "971585878229"
+const EMAIL = "mohamed.arab.ai.experts@gmail.com"
+const X_URL = "https://x.com/Arab_ai_experts"
+const INSTAGRAM_URL = "https://www.instagram.com/mohamed920810"
 
 export function Footer() {
   const { t } = useLanguage()
@@ -20,6 +31,29 @@ export function Footer() {
     {
       heading: d.footer.resources,
       links: [d.footer.links.privacy, d.footer.links.terms],
+    },
+  ]
+
+  const socials = [
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/${WHATSAPP_NUMBER}`,
+      icon: WhatsAppIcon,
+    },
+    {
+      label: "Email",
+      href: `mailto:${EMAIL}`,
+      icon: MailIconBrand,
+    },
+    {
+      label: "X (Twitter)",
+      href: X_URL,
+      icon: XIcon,
+    },
+    {
+      label: "Instagram",
+      href: INSTAGRAM_URL,
+      icon: InstagramIcon,
     },
   ]
 
@@ -43,20 +77,18 @@ export function Footer() {
                 {t(d.footer.follow)}
               </p>
               <div className="mt-2 flex items-center gap-2">
-                <a
-                  href="#"
-                  aria-label="X (Twitter)"
-                  className="grid size-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  <XIcon className="size-4" />
-                </a>
-                <a
-                  href="#"
-                  aria-label="TikTok"
-                  className="grid size-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  <TikTokIcon className="size-5" />
-                </a>
+                {socials.map(({ label, href, icon: Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="grid size-9 place-items-center rounded-lg border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                ))}
               </div>
             </div>
           </div>
