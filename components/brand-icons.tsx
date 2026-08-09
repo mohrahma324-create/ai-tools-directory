@@ -41,3 +41,12 @@ export function MailIconBrand(props: SVGProps<SVGSVGElement>) {
     </svg>
   )
 }
+
+
+export function TelegramIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...props}>
+      <path d="M21.94 4.5 18.6 20.11c-.25 1.13-.9 1.4-1.83.87l-5.06-3.73-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.39-8.48c.41-.36-.09-.56-.63-.2L6.3 13.05l-5.03-1.57c-1.1-.34-1.11-1.1.23-1.63L20.6 3.31c.91-.34 1.71.21 1.34 1.19Z" />
+    </svg>
+  )
+}
